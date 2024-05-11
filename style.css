@@ -18,12 +18,22 @@
     font-size: 180%;
     font-weight: bolder;
 }
-.information_box {
-    display: none;
+.information_box_container {
+    width: 60%;
+    height: 80%;
     position: flex;
     margin-top: auto;
     margin-bottom: auto;
-    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*border: 2px solid black;*/
+}
+.information_box {
+    display: none;
+    position: flex;
+    width: 100%;
     background-color: lightyellow;
     border: 2px solid black;
     border-radius: 10px;

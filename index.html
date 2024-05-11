@@ -13,11 +13,13 @@
         </div>
 
         <!-- temporary -->
-        <div class="information_box">
-            <p>Location: 0</p>
-            <p>ค่าฝุ่น: หัวควย</p>
-        </div>       
-
+        <div class="information_box_container">
+            <!-- <div class="information_box" id="information_box_0">
+                <p>Location: 0</p>
+                <p>ค่าฝุ่น: หัวควย</p>
+            </div> -->
+        </div> 
+        
         <div class="name">
             <p>กรณ์ สุรพัฒน์ 6531301721</p>
             <p>กิตติพัฒน์ จูสิงห์ 6531304621</p>
@@ -37,43 +39,72 @@
             <div class="slider">
                 
                 <!-- temporary -->
-                <button id="add_location_button">Add</button>    
+                <button id="add_location_button" onclick=addLocation()>Add</button>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        var i = 0;
+                        const addButton = document.getElementById("add_location_button");
+                        const slideContainer = document.querySelector(".slide_container");
+                        const informationBoxContainer = document.querySelector(".information_box_container");
+
+                        addButton.addEventListener("click", function() {
+                            i += 1;
+                            const newButton = document.createElement("button");
+                            const number = slideContainer.children.length + 1;
+                            newButton.textContent = "Location " + number;
+                            newButton.className = "button";
+
+                            const informationBox = document.createElement("div");
+                            informationBox.className = "information_box";
+                            informationBox.id = "information_box_" + number;
+                            informationBox.style.display = "none";
+                            const location = document.createElement("p");
+                            const dustValue = document.createElement("p");
+                            location.textContent = "Location: " + number;
+                            dustValue.textContent = "ค่าฝุ่น: หัวควยเหมือนกัน";
+                            informationBox.appendChild(location);
+                            informationBox.appendChild(dustValue); 
+                            informationBoxContainer.appendChild(informationBox);
+
+                            newButton.addEventListener("click", function() /*showInformationBox()*/ {
+                                for(var j = 1; j <= i; j++) {
+                                    if (j != number) {
+                                        let tmp = document.getElementById("information_box_" + j);
+                                        if (tmp.style.display == "flex") {
+                                            tmp.style.display = "none";
+                                            break;
+                                        }
+                                    }
+                                }
+                                let informationBox = document.getElementById("information_box_" + number);
+                                if (informationBox.style.display == "none") {
+                                    informationBox.style.display = "flex";
+                                } else {
+                                    informationBox.style.display = "none";
+                                }
+                            });
+                            slideContainer.appendChild(newButton);
+                        });
+                    });
+                </script>
 
                 <div class="slide_container">
-                    <button class="button" onclick=showInformationBox()>Location 0</button>
+                    <!-- <button class="button" onclick=showInformationBox()>Location 0</button> -->
                     <!-- Add more button -->
 
                     <!-- temporary -->
-                    <script>
+                    <!-- <script>
                         function showInformationBox() {
-                            let informationBox = document.querySelector(".information_box");
+                            let informationBox = document.getElementById("information_box_0");
                             if (informationBox.style.display == "none") {
                                 informationBox.style.display = "flex";
                             } else {
                                 informationBox.style.display = "none";
                             }
                         }
-                    </script>
+                    </script> -->
 
                 </div>
-
-                <!-- temporary -->
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                        var i = 0;
-                        const addButton = document.getElementById("add_location_button");
-                        const slideContainer = document.querySelector(".slide_container");
-
-                        addButton.addEventListener("click", function() {
-                            const newButton = document.createElement("button");
-                            i += 1;
-                            newButton.textContent = "Location " + i;
-                            newButton.className = "button";
-                            slideContainer.appendChild(newButton);
-                        });
-                    });
-                </script> 
-
             </div>
         </div>   
     </div>
