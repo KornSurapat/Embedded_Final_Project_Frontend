@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded System Laboratory Final Project</title>
+    <link rel="stylesheet" href="style.css"></link>
+</head>
+<body>
+    <div class="information">
+        <div class="title_information">
+            <p>Information</p>
+        </div>
+
+        <!-- temporary -->
+        <div class="information_box">
+            <p>Location: 0</p>
+            <p>ค่าฝุ่น: หัวควย</p>
+        </div>       
+
+        <div class="name">
+            <p>กรณ์ สุรพัฒน์ 6531301721</p>
+            <p>กิตติพัฒน์ จูสิงห์ 6531304621</p>
+            <p>ไกรวิชญ์ จรสโรจน์กุล 6531301721</p>
+            <p>ศุภวิชญ์ เจนสวัสดิ์พงศ์ 6532175121</p>
+        </div>
+    </div>
+    <div class="map">
+        <div class="title_map">
+            <p>Embedded System Laboratory Final Project</p>
+        </div>
+        <div class="image_container">
+
+            <!-- temporary -->
+            <img src="Bangkok_map.jpg" alt="Bangkok_map" class="image">
+            
+            <div class="slider">
+                
+                <!-- temporary -->
+                <button id="add_location_button">Add</button>    
+
+                <div class="slide_container">
+                    <button class="button" onclick=showInformationBox()>Location 0</button>
+                    <!-- Add more button -->
+
+                    <!-- temporary -->
+                    <script>
+                        function showInformationBox() {
+                            let informationBox = document.querySelector(".information_box");
+                            if (informationBox.style.display == "none") {
+                                informationBox.style.display = "flex";
+                            } else {
+                                informationBox.style.display = "none";
+                            }
+                        }
+                    </script>
+
+                </div>
+
+                <!-- temporary -->
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        var i = 0;
+                        const addButton = document.getElementById("add_location_button");
+                        const slideContainer = document.querySelector(".slide_container");
+
+                        addButton.addEventListener("click", function() {
+                            const newButton = document.createElement("button");
+                            i += 1;
+                            newButton.textContent = "Location " + i;
+                            newButton.className = "button";
+                            slideContainer.appendChild(newButton);
+                        });
+                    });
+                </script> 
+
+            </div>
+        </div>   
+    </div>
+</body>
+</html>
